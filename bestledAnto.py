@@ -42,7 +42,6 @@ def lightsOff(strip, four_off=False, all_off=False, wait=50ms):
             strip.setPixelColor(off, Color(0, 0, 0))
         strip.show()
 
-
     if all_off:
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, Color(0, 0, 0))
