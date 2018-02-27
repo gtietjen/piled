@@ -27,6 +27,7 @@ def whiteLights(strip, set_of_four=False, turn_off =False, turn_off_all=False,
         strip.show()
         time.sleep(wait_ms/1000.0)
 
+
     if turn_off:
         for i, off in zip(range(strip.numPixels(), turn_off)):
             strip.setPixelColor(off, Color(0, 0, 0))
@@ -42,17 +43,7 @@ def whiteLights(strip, set_of_four=False, turn_off =False, turn_off_all=False,
         strip.show()
 
 
-onWhiteLightsOneThree = whiteLights(strip, set_of_four=[0,1,2,3], wait_ms=50)
-onWhiteLightsFourSeven = whiteLights(strip, set_of_four=[4,5,6,7], wait_ms=50)
-onWhiteLightsEightEleven = whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
-onWhiteLightsTwelveFifteen = whiteLights(strip, set_of_four=[12,13,14,15], wait_ms=50)
-onWhtieLightsSixteenNineteen = whiteLights(strip, set_of_four=[16,17,18,19], wait_ms=50)
 
-offWhiteLightsOneThree = whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
-offWhiteLightsFourSeven = whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
-offWhiteLightsEightEleven = whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
-offWhiteLightsTwelveFifteen = whiteLights(strip, turn_off=[12,13,14,15], wait_ms=50)
-offWhtieLightsSixteenNineteen = whiteLights(strip, turn_off=[16,17,18,19], wait_ms=50)
 
 #offAll = whiteLights(strip, turn_off=True, wait_ms=50)
 
@@ -121,6 +112,19 @@ if __name__ == '__main__':
     light46 = datetime.now() + timedelta(seconds=4.5)
     # light11 = datetime.now() + timedelta(seconds=1.50)
     end = start_time + timedelta(seconds=5)
+
+
+    onWhiteLightsOneThree = whiteLights(strip, set_of_four=[0,1,2,3], wait_ms=50)
+    onWhiteLightsFourSeven = whiteLights(strip, set_of_four=[4,5,6,7], wait_ms=50)
+    onWhiteLightsEightEleven = whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
+    onWhiteLightsTwelveFifteen = whiteLights(strip, set_of_four=[12,13,14,15], wait_ms=50)
+    onWhtieLightsSixteenNineteen = whiteLights(strip, set_of_four=[16,17,18,19], wait_ms=50)
+
+    offWhiteLightsOneThree = whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
+    offWhiteLightsFourSeven = whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
+    offWhiteLightsEightEleven = whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
+    offWhiteLightsTwelveFifteen = whiteLights(strip, turn_off=[12,13,14,15], wait_ms=50)
+    offWhtieLightsSixteenNineteen = whiteLights(strip, turn_off=[16,17,18,19], wait_ms=50)
 
     try:
         while datetime.now() < start_time + timedelta(seconds=INTERVAL):
