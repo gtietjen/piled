@@ -3,6 +3,10 @@ import atexit
 from datetime import datetime, timedelta
 from neopixel import Adafruit_NeoPixel, Color
 
+#edit
+
+
+
 
 # LED strip configuration:
 LED_COUNT = 20      # Number of LED pixels.
@@ -16,10 +20,11 @@ INTERVAL = 0.15
 
 
 def whiteLights(strip, set_of_four=False, turn_off =False, turn_off_all=False,
-                wait_ms=50);;
+                wait_ms=50):
     
     if set_of_four:
-        for i, four in zip(range(strip.numPixels(), set_of_four)):
+
+        for i, four in zip(range(strip.numPixels()), set_of_four):
             strip.setPixelColor(four, Color(200, 255, 255))
             strip.setPixelColor(four, Color(200, 255, 255))
             strip.setPixelColor(four, Color(200, 255, 255))
@@ -29,7 +34,8 @@ def whiteLights(strip, set_of_four=False, turn_off =False, turn_off_all=False,
 
 
     if turn_off:
-        for i, off in zip(range(strip.numPixels(), turn_off)):
+
+        for i, off in zip(range(strip.numPixels()), turn_off):
             strip.setPixelColor(off, Color(0, 0, 0))
             strip.setPixelColor(off, Color(0, 0, 0))
             strip.setPixelColor(off, Color(0, 0, 0))
@@ -38,6 +44,7 @@ def whiteLights(strip, set_of_four=False, turn_off =False, turn_off_all=False,
 
 
     if turn_off_all:
+
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, Color(0, 0, 0))
         strip.show()
