@@ -16,7 +16,7 @@ INTERVAL = 0.15
 
 
 def whiteLights(strip, set_of_four=False, turn_off =False, turn_off_all=False,
-                wait_ms=50)
+                wait_ms=50);
     
     if set_of_four:
         for i, four in zip(range(strip.numPixels(), set_of_four)):
