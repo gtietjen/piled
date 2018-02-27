@@ -19,12 +19,10 @@ INTERVAL = 0.15
 # INTERVAL2 = 0.1
 
 
-def whiteLights(strip, set_of_four=False, turn_off =False, turn_off_all=False,
-                wait_ms=50):
+def lightsOn(strip, four_on=False, wait_ms=50):
     
-    if set_of_four:
-
-        for i, four in zip(range(strip.numPixels()), set_of_four):
+    if four_on:
+        for i, four in zip(range(strip.numPixels()), four_on):
             print(i, four, 'on')
             strip.setPixelColor(four, Color(200, 255, 255))
             strip.setPixelColor(four, Color(200, 255, 255))
@@ -33,10 +31,10 @@ def whiteLights(strip, set_of_four=False, turn_off =False, turn_off_all=False,
         strip.show()
         time.sleep(wait_ms/1000.0)
 
+def lightsOff(strip, four_off=False, all_off=False, wait=50ms):
 
-    if turn_off:
-
-        for i, off in zip(range(strip.numPixels()), turn_off):
+    if four_off:
+        for i, off in zip(range(strip.numPixels()), four_off):
             print(i, off, 'off')
             strip.setPixelColor(off, Color(0, 0, 0))
             strip.setPixelColor(off, Color(0, 0, 0))
@@ -45,30 +43,17 @@ def whiteLights(strip, set_of_four=False, turn_off =False, turn_off_all=False,
         strip.show()
 
 
-    if turn_off_all:
-
+    if all_off:
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, Color(0, 0, 0))
         strip.show()
-
-
-
-
-#offAll = whiteLights(strip, turn_off=True, wait_ms=50)
-
-
-def turnOffAll(strip, wait_ms=50):
-    """Turn off all LEDs."""
-    for i in range(strip.numPixels()):
-        strip.setPixelColor(i, Color(0, 0, 0))
-    strip.show()
 
 
 # Main program logic follows:
 if __name__ == '__main__':
     # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
-    atexit.register(turnOffAll, strip)
+    atexit.register(lightsOff(strip, allOff=True, strip)
     # Intialize the library (must be called once before other functions).
     strip.begin()
 
@@ -123,141 +108,146 @@ if __name__ == '__main__':
     end = start_time + timedelta(seconds=5)
 
 
+
+
+
+
+
     try:
         while datetime.now() < start_time + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
+            lightsOn(strip, four_on=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
 
         while datetime.now() < light2 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
+            lightsOn(strip, four_on=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
 
         while datetime.now() < light3 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
+            lightsOn(strip, four_on=[8,9,10,11], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
 
         while datetime.now() < light4 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[12,13,14,15], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
+            lightsOn(strip, four_on=[12,13,14,15], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[8,9,10,11], wait=50ms)
 
         while datetime.now() < light5 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[16,17,18,19], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
-            whiteLights(strip, turn_off=[12,13,14,15], wait_ms=50)
+            lightsOn(strip, four_on=[16,17,18,19], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[8,9,10,11], wait=50ms)
+            lightsOff(strip, four_off=[12,13,14,15], wait=50ms)
 
         while datetime.now() < light6 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
-            whiteLights(strip, turn_off=[12,13,14,15], wait_ms=50)
-            whiteLights(strip, turn_off=[16,17,18,19], wait_ms=50)
+            lightsOn(strip, four_on=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[8,9,10,11], wait=50ms)
+            lightsOff(strip, four_off=[12,13,14,15], wait=50ms)
+            lightsOff(strip, four_off=[16,17,18,19], wait=50ms)
 
         while datetime.now() < light7 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
+            lightsOn(strip, four_on=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
 
         while datetime.now() < light8 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
+            lightsOn(strip, four_on=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
 
         while datetime.now() < light9 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
+            lightsOn(strip, four_on=[8,9,10,11], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
 
         while datetime.now() < light10 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[12,13,14,15], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
+            lightsOn(strip, four_on=[12,13,14,15], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[8,9,10,11], wait=50ms)
 
         while datetime.now() < light11 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[16,17,18,19], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
-            whiteLights(strip, turn_off=[12,13,14,15], wait_ms=50)
+            lightsOn(strip, four_on=[16,17,18,19], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[8,9,10,11], wait=50ms)
+            lightsOff(strip, four_off=[12,13,14,15], wait=50ms)
 
         while datetime.now() < light12 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
-            whiteLights(strip, turn_off=[12,13,14,15], wait_ms=50)
-            whiteLights(strip, turn_off=[16,17,18,19], wait_ms=50)
+            lightsOn(strip, four_on=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[8,9,10,11], wait=50ms)
+            lightsOff(strip, four_off=[12,13,14,15], wait=50ms)
+            lightsOff(strip, four_off=[16,17,18,19], wait=50ms)
 
         while datetime.now() < light13 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
+            lightsOn(strip, four_on=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
 
         while datetime.now() < light14 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
+            lightsOn(strip, four_on=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
 
         while datetime.now() < light15 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
+            lightsOn(strip, four_on=[8,9,10,11], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
 
         while datetime.now() < light16 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[12,13,14,15], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
+            lightsOn(strip, four_on=[12,13,14,15], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[8,9,10,11], wait=50ms)
 
         while datetime.now() < light17 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[16,17,18,19], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
-            whiteLights(strip, turn_off=[12,13,14,15], wait_ms=50)
+            lightsOn(strip, four_on=[16,17,18,19], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[8,9,10,11], wait=50ms)
+            lightsOff(strip, four_off=[12,13,14,15], wait=50ms)
 
         while datetime.now() < light18 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
-            whiteLights(strip, turn_off=[12,13,14,15], wait_ms=50)
-            whiteLights(strip, turn_off=[16,17,18,19], wait_ms=50)
+            lightsOn(strip, four_on=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[8,9,10,11], wait=50ms)
+            lightsOff(strip, four_off=[12,13,14,15], wait=50ms)
+            lightsOff(strip, four_off=[16,17,18,19], wait=50ms)
 
         while datetime.now() < light19 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
+            lightsOn(strip, four_on=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
 
         while datetime.now() < light21 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
+            lightsOn(strip, four_on=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
 
         while datetime.now() < light22 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
+            lightsOn(strip, four_on=[8,9,10,11], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
 
         while datetime.now() < light23 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[12,13,14,15], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
+            lightsOn(strip, four_on=[12,13,14,15], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[8,9,10,11], wait=50ms)
 
         while datetime.now() < light24 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[16,17,18,19], wait_ms=50)
-            whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
-            whiteLights(strip, turn_off=[12,13,14,15], wait_ms=50)
+            lightsOn(strip, four_on=[16,17,18,19], wait=50ms)
+            lightsOff(strip, four_off=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[8,9,10,11], wait=50ms)
+            lightsOff(strip, four_off=[12,13,14,15], wait=50ms)
 
         while datetime.now() < light25 + timedelta(seconds=INTERVAL):
-            whiteLights(strip, set_of_four=[0,1,2,3], wait_ms=50)
-            whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
-            whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
-            whiteLights(strip, turn_off=[12,13,14,15], wait_ms=50)
-            whiteLights(strip, turn_off=[16,17,18,19], wait_ms=50)
+            lightsOn(strip, four_on=[0,1,2,3], wait=50ms)
+            lightsOff(strip, four_off=[4,5,6,7], wait=50ms)
+            lightsOff(strip, four_off=[8,9,10,11], wait=50ms)
+            lightsOff(strip, four_off=[12,13,14,15], wait=50ms)
+            lightsOff(strip, four_off=[16,17,18,19], wait=50ms)
 
         while datetime.now() < end + timedelta(seconds=INTERVAL):
-            turnOffAll(strip)
+            lightsOff(strip, allOff=True)
 
     except KeyboardInterrupt:
-        turnOffAll(strip)
+        lightsOff(strip, allOff=True)
