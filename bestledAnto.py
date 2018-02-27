@@ -25,6 +25,7 @@ def whiteLights(strip, set_of_four=False, turn_off =False, turn_off_all=False,
     if set_of_four:
 
         for i, four in zip(range(strip.numPixels()), set_of_four):
+            print(i, four, 'on')
             strip.setPixelColor(four, Color(200, 255, 255))
             strip.setPixelColor(four, Color(200, 255, 255))
             strip.setPixelColor(four, Color(200, 255, 255))
@@ -36,6 +37,7 @@ def whiteLights(strip, set_of_four=False, turn_off =False, turn_off_all=False,
     if turn_off:
 
         for i, off in zip(range(strip.numPixels()), turn_off):
+            print(i, off, 'off')
             strip.setPixelColor(off, Color(0, 0, 0))
             strip.setPixelColor(off, Color(0, 0, 0))
             strip.setPixelColor(off, Color(0, 0, 0))
@@ -119,6 +121,8 @@ if __name__ == '__main__':
     light46 = datetime.now() + timedelta(seconds=4.5)
     # light11 = datetime.now() + timedelta(seconds=1.50)
     end = start_time + timedelta(seconds=5)
+
+
 
 
     onWhiteLightsOneThree = whiteLights(strip, set_of_four=[0,1,2,3], wait_ms=50)
