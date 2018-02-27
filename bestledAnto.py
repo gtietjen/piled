@@ -133,7 +133,7 @@ if __name__ == '__main__':
             whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
 
         while datetime.now() < light3 + timedelta(seconds=INTERVAL):
-             whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
+            whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
             whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
             whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
 
@@ -166,7 +166,7 @@ if __name__ == '__main__':
             whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
 
         while datetime.now() < light9 + timedelta(seconds=INTERVAL):
-             whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
+            whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
             whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
             whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
 
@@ -199,7 +199,7 @@ if __name__ == '__main__':
             whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
 
         while datetime.now() < light15 + timedelta(seconds=INTERVAL):
-             whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
+            whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
             whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
             whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
 
@@ -232,7 +232,7 @@ if __name__ == '__main__':
             whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
 
         while datetime.now() < light22 + timedelta(seconds=INTERVAL):
-             whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
+            whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
             whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
             whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
 
