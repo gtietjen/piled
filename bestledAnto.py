@@ -48,11 +48,17 @@ def lightsOff(strip, four_off=False, all_off=False, wait=50):
         strip.show()
 
 
+def turnOffAll(strip, wait_ms=50):
+    """Turn off all LEDs."""
+    for i in range(strip.numPixels()):
+        strip.setPixelColor(i, Color(0, 0, 0))
+    strip.show()
+
 # Main program logic follows:
 if __name__ == '__main__':
     # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
-    atexit.register(lightsOff(strip, allOff=True, strip)
+    atexit.register(turnOffAll, strip)
     # Intialize the library (must be called once before other functions).
     strip.begin()
 
@@ -246,7 +252,7 @@ if __name__ == '__main__':
             lightsOff(strip, four_off=[16,17,18,19], wait_ms=50)
 
         while datetime.now() < end + timedelta(seconds=INTERVAL):
-            lightsOff(strip, allOff=True)
+            turnOffAll(strip)
 
     except KeyboardInterrupt:
-        lightsOff(strip, allOff=True)
+        turnOffAll(strip)
