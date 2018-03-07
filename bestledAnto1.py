@@ -113,20 +113,20 @@ if __name__ == '__main__':
     end = start_time + timedelta(seconds=5)
 
 
-    onWhiteLightsOneThree = whiteLights(strip, set_of_four=[0,1,2,3], wait_ms=50)
-    onWhiteLightsFourSeven = whiteLights(strip, set_of_four=[4,5,6,7], wait_ms=50)
-    onWhiteLightsEightEleven = whiteLights(strip, set_of_four=[8,9,10,11], wait_ms=50)
-    onWhiteLightsTwelveFifteen = whiteLights(strip, set_of_four=[12,13,14,15], wait_ms=50)
-    onWhtieLightsSixteenNineteen = whiteLights(strip, set_of_four=[16,17,18,19], wait_ms=50)
+    onWhiteLightsOneThree = lightsOn(strip, four_on=[0,1,2,3], wait_ms=50)
+    onWhiteLightsFourSeven = lightsOn(strip, four_on=[4,5,6,7], wait_ms=50)
+    onWhiteLightsEightEleven = lightsOn(strip, four_on=[8,9,10,11], wait_ms=50)
+    onWhiteLightsTwelveFifteen = lightsOn(strip, four_on=[12,13,14,15], wait_ms=50)
+    onWhtieLightsSixteenNineteen = lightsOn(strip, four_on=[16,17,18,19], wait_ms=50)
 
     onList = [onWhiteLightsOneThree, onWhiteLightsFourSeven, onWhiteLightsEightEleven,onWhiteLightsTwelveFifteen, onWhtieLightsSixteenNineteen]
+    
 
-
-    offWhiteLightsOneThree = whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
-    offWhiteLightsFourSeven = whiteLights(strip, turn_off=[4,5,6,7], wait_ms=50)
-    offWhiteLightsEightEleven = whiteLights(strip, turn_off=[8,9,10,11], wait_ms=50)
-    offWhiteLightsTwelveFifteen = whiteLights(strip, turn_off=[12,13,14,15], wait_ms=50)
-    offWhiteLightsSixteenNineteen = whiteLights(strip, turn_off=[16,17,18,19], wait_ms=50)
+    offWhiteLightsOneThree = lightsOff(strip, four_off=[0,1,2,3], wait_ms=50)
+    offWhiteLightsFourSeven = lightsOff(strip, four_off=[4,5,6,7], wait_ms=50)
+    offWhiteLightsEightEleven = lightsOff(strip, four_off=[8,9,10,11], wait_ms=50)
+    offWhiteLightsTwelveFifteen = lightsOff(strip, four_off=[12,13,14,15], wait_ms=50)
+    offWhiteLightsSixteenNineteen = lightsOff(strip, four_off=[16,17,18,19], wait_ms=50)
 
     offList = [offWhiteLightsOneThree, offWhiteLightsFourSeven, offWhiteLightsEightEleven, offWhiteLightsTwelveFifteen, offWhiteLightsSixteenNineteen]
     # onList is 'odd' offlist is 'even'
@@ -136,8 +136,8 @@ if __name__ == '__main__':
 
 count = 0.0
 
-while (count< 0.5):
-    for i, on in zip(range(10), result):
+while (count< 1.0):
+    for i, on in zip(range(len(result)), result):
         count+=0.1
         if (i % 2 != 0):
             on
