@@ -15,9 +15,8 @@ INTERVAL = 0.15
 # INTERVAL2 = 0.1
 
 
-def whiteLights(strip, set_of_four=False, turn_off =False, turn_off_all=False,
-                wait_ms=50)
-    
+def whiteLights(strip, wait_ms=50, set_of_four=False, turn_off =False, turn_off_all=False)
+
     if set_of_four:
         for i, four in zip(range(strip.numPixels(), set_of_four)):
             strip.setPixelColor(four, Color(200, 255, 255))
@@ -120,8 +119,7 @@ if __name__ == '__main__':
     onWhiteLightsTwelveFifteen = whiteLights(strip, set_of_four=[12,13,14,15], wait_ms=50)
     onWhtieLightsSixteenNineteen = whiteLights(strip, set_of_four=[16,17,18,19], wait_ms=50)
 
-    onList = [onWhiteLightsOneThree, onWhiteLightsFourSeven, onWhiteLightsEightEleven,
-                onWhiteLightsTwelveFifteen, onWhtieLightsSixteenNineteen]
+    onList = [onWhiteLightsOneThree, onWhiteLightsFourSeven, onWhiteLightsEightEleven,onWhiteLightsTwelveFifteen, onWhtieLightsSixteenNineteen]
 
 
     offWhiteLightsOneThree = whiteLights(strip, turn_off=[0,1,2,3], wait_ms=50)
@@ -130,8 +128,7 @@ if __name__ == '__main__':
     offWhiteLightsTwelveFifteen = whiteLights(strip, turn_off=[12,13,14,15], wait_ms=50)
     offWhiteLightsSixteenNineteen = whiteLights(strip, turn_off=[16,17,18,19], wait_ms=50)
 
-    offList = [offWhiteLightsOneThree, offWhiteLightsFourSeven, offWhiteLightsEightEleven, 
-                 offWhiteLightsTwelveFifteen, offWhiteLightsSixteenNineteen]
+    offList = [offWhiteLightsOneThree, offWhiteLightsFourSeven, offWhiteLightsEightEleven, offWhiteLightsTwelveFifteen, offWhiteLightsSixteenNineteen]
     # onList is 'odd' offlist is 'even'
     result = [None]*(len(onList)+len(offList))
     result[::2] = onList
@@ -140,13 +137,10 @@ if __name__ == '__main__':
 count = 0.0
 
 while (count< 0.5):
-    
-    for i, on in zip(range(5), result):
+    for i, on in zip(range(10), result):
         count+=0.1
-        if (i % 2 == 0):
-            on  
+        if (i % 2 != 0):
+            on
         else:
             off
     break
-
-
