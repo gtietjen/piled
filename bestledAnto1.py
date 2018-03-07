@@ -31,7 +31,7 @@ def lightsOn(strip, four_on=False, wait_ms=50):
         strip.show()
         time.sleep(wait_ms/1000.0)
 
-def lightsOff(strip, four_off=False, all_off=False, wait=50):
+def lightsOff(strip, four_off=False, all_off=False, wait_ms=50):
 
     if four_off:
         for i, off in zip(range(strip.numPixels()), four_off):
@@ -134,13 +134,36 @@ if __name__ == '__main__':
     result[::2] = onList
     result[1::2] = offList
 
-count = 0.0
+# count = 0
 
-while (count< 1.0):
-    for i, on in zip(range(len(result)), result):
-        count+=0.1
-        if (i % 2 != 0):
-            on
-        else:
-            on
+# while (count< 10):
+#     for i, on in zip(range(len(result)), result):
+#         count+=1
+#         if (i % 2 != 0):
+#             on
+#         else:
+#             on
+#     break
+
+arg1 = [i for i in range(0, 255, 4)]
+arg2 = [i for i in range(0, 255, 4)]
+arg3 = [i for i in range(0, 255, 4)]
+
+lst = [1,2,3,4,5]
+
+lights = [l for i in range(round(len(arg1) / len(lst))) for l in lst]
+del lights[-1]
+
+count = 0
+while (count < 60):
+    for i, li, ar1, ar2,ar3, in zip(range(strip.numPixels()), lights, arg1, arg2, arg3):
+        print(i, li, 'on')
+        strip.setPixelColor(li, Color(ar1, ar2, ar3))
+        strip.setPixelColor(li, Color(ar1, ar2, ar3))
+        strip.setPixelColor(li, Color(ar1, ar2, ar3))
+        strip.setPixelColor(li, Color(ar1, ar2, ar3))
+        strip.setPixelColor(li, Color(ar1, ar2, ar3))
+        count+=1
+    strip.show()
+    time.sleep(500/1000.0)
     break
