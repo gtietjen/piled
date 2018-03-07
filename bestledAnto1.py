@@ -3,6 +3,10 @@ import atexit
 from datetime import datetime, timedelta
 from neopixel import Adafruit_NeoPixel, Color
 
+#edit
+
+
+
 
 # LED strip configuration:
 LED_COUNT = 20      # Number of LED pixels.
@@ -15,10 +19,11 @@ INTERVAL = 0.15
 # INTERVAL2 = 0.1
 
 
-def whiteLights(strip, wait_ms=50, set_of_four=False, turn_off =False, turn_off_all=False)
-
-    if set_of_four:
-        for i, four in zip(range(strip.numPixels(), set_of_four)):
+def lightsOn(strip, four_on=False, wait_ms=50):
+    
+    if four_on:
+        for i, four in zip(range(strip.numPixels()), four_on):
+            print(i, four, 'on')
             strip.setPixelColor(four, Color(200, 255, 255))
             strip.setPixelColor(four, Color(200, 255, 255))
             strip.setPixelColor(four, Color(200, 255, 255))
@@ -26,25 +31,21 @@ def whiteLights(strip, wait_ms=50, set_of_four=False, turn_off =False, turn_off_
         strip.show()
         time.sleep(wait_ms/1000.0)
 
+def lightsOff(strip, four_off=False, all_off=False, wait=50):
 
-    if turn_off:
-        for i, off in zip(range(strip.numPixels(), turn_off)):
+    if four_off:
+        for i, off in zip(range(strip.numPixels()), four_off):
+            print(i, off, 'off')
             strip.setPixelColor(off, Color(0, 0, 0))
             strip.setPixelColor(off, Color(0, 0, 0))
             strip.setPixelColor(off, Color(0, 0, 0))
             strip.setPixelColor(off, Color(0, 0, 0))
         strip.show()
 
-
-    if turn_off_all:
+    if all_off:
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, Color(0, 0, 0))
         strip.show()
-
-
-
-
-#offAll = whiteLights(strip, turn_off=True, wait_ms=50)
 
 
 def turnOffAll(strip, wait_ms=50):
@@ -52,7 +53,6 @@ def turnOffAll(strip, wait_ms=50):
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, Color(0, 0, 0))
     strip.show()
-
 
 # Main program logic follows:
 if __name__ == '__main__':
@@ -142,5 +142,5 @@ while (count< 0.5):
         if (i % 2 != 0):
             on
         else:
-            off
+            on
     break
