@@ -41,6 +41,7 @@ def lightsOff(strip, four_off=False, all_off=False, wait_ms=50):
             strip.setPixelColor(off, Color(0, 0, 0))
             strip.setPixelColor(off, Color(0, 0, 0))
         strip.show()
+        time.sleep(wait_ms/1000.0)
 
     if all_off:
         for i in range(strip.numPixels()):
@@ -164,6 +165,6 @@ while (count < 60):
         strip.setPixelColor(li, Color(ar1, ar2, ar3))
         strip.setPixelColor(li, Color(ar1, ar2, ar3))
         count+=1
-    strip.show()
-    time.sleep(500/1000.0)
+        strip.show()
+        time.sleep(1)
     break
